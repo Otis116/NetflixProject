@@ -266,11 +266,12 @@ WHERE
 ORDER BY 
        3 DESC
 
---The above query intends to find the underkying themes in the various tv shows and movies in Netflix. The word "Kill" can be replaced with sex, Love, death etc
+--The above query intends to find the underlying themes in the various tv shows and movies in Netflix. The word "Kill" can be replaced with sex, Love, death etc
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 --PERCENTAGE OF RATINGS OF MOVIES AND TV SHOWS
+
 
 SELECT 
      rating, 
@@ -279,11 +280,26 @@ SELECT
 FROM 
      netflix_titles
 WHERE 
-     type = 'Movie'
+     type LIKE '%Movie' AND rating NOT LIKE '%min%'
 GROUP BY  
      rating, 
 	 type
 ORDER BY
      3 DESC
 
+
+	 --For Tv Shows
+SELECT 
+     rating, 
+	 type,
+	 ROUND(COUNT(rating) * 100.0 / (SELECT COUNT(*) FROM netflix_titles),2) AS percentage
+FROM 
+     netflix_titles
+WHERE 
+     type LIKE '%Tv%' AND rating NOT LIKE '%min%'
+GROUP BY  
+     rating, 
+	 type
+ORDER BY
+     3 DESC
 
