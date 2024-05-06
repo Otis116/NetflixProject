@@ -13,9 +13,7 @@ FROM
 GROUP BY 
      type
 
-
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 --GENRE POPULARITY
 
@@ -114,7 +112,6 @@ GROUP BY
 ORDER BY 
      2 Desc
 
-
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 --BY RELEASE YEAR
@@ -162,7 +159,6 @@ ORDER BY
     1 
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 --DURATION OF THE MOVIES AND TV SHOWS
 
@@ -241,7 +237,6 @@ SELECT
 	WHERE 
 	    type LIKE '%Movie'
 	)
-
 SELECT 
      release_year,  
 	 title, 
@@ -277,7 +272,6 @@ ORDER BY
 
 --PERCENTAGE OF RATINGS OF MOVIES AND TV SHOWS
 
-
 SELECT 
      rating, 
 	 type,
@@ -291,6 +285,5 @@ GROUP BY
 	 type
 ORDER BY
      3 DESC
-
 
 
